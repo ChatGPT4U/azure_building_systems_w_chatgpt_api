@@ -32,7 +32,7 @@ def get_completion_from_messages(messages, engine, temperature=0, max_tokens=500
         raise e
 
 
-def create_message_and_get_completion(system_message, user_message, engine):
+def create_message_and_get_completion(system_message, user_message, engine=DEPLOYMENT_ID):
     delimiter = "####"
     messages = [
         {'role': 'system',
@@ -87,7 +87,7 @@ def main():
 
     for user_message in user_messages:
         response = create_message_and_get_completion(
-            system_message, user_message, DEPLOYMENT_ID)
+            system_message, user_message)
         print(response)
 
 

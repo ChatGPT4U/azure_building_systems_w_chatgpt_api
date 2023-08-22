@@ -18,11 +18,11 @@ openai.api_version = API_VERSION
 openai.api_base = API_BASE
 
 
-def get_completion(prompt, deployment_id):
+def get_completion(prompt, engine=DEPLOYMENT_ID):
     messages = [{"role": "user", "content": prompt}]
     try:
         response = openai.ChatCompletion.create(
-            engine=deployment_id,
+            engine=engine,
             messages=messages,
             temperature=0,
         )
@@ -40,7 +40,7 @@ def main():
     ]
 
     for prompt in prompts:
-        response = get_completion(prompt, DEPLOYMENT_ID)
+        response = get_completion(prompt)
         print(response)
 
 
