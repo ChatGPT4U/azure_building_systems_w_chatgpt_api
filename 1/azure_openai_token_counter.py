@@ -34,7 +34,7 @@ def get_completion_and_token_count(messages, engine, temperature=0, max_tokens=5
         }
 
         return content, token_dict
-    except openai.Error as e:
+    except openai.error.OpenAIError as e:
         print(e)
         return None, None
 

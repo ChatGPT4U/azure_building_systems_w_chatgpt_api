@@ -27,7 +27,7 @@ def get_completion_from_messages(messages, engine, temperature=0, max_tokens=500
         )
 
         return response.choices[0].message["content"]
-    except openai.Error as e:
+    except openai.error.OpenAIError as e:
         print(e)
         raise e
 
